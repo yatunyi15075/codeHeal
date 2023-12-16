@@ -5,7 +5,6 @@ export const DoctorsController = async (req, res) => {
     try {
 
         let queryToExecute;
-        console.log("Request Object:", req.baseUrl);
 
         if (req.baseUrl.includes("/populerDoctors")) {
             queryToExecute = populerDoctorsQuery;
