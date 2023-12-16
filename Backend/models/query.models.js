@@ -14,7 +14,7 @@ export const populerDoctorsQuery = `
 
 export const SignUpInsertQuery = `
     INSERT INTO users(FullName,MobileNumber,Email,Password,date)
-    VALUES(?,?,?,?,?)
+    VALUES(?,?,?,?,?);
     `;
 
 export const SignUpSelectQuery = `
@@ -28,3 +28,14 @@ export const allDoctorsQuery = `
     SELECT * 
     FROM doctors;
   `;
+
+export const addDoctors = `
+    INSERT INTO doctors(FULLNAME,CATEGORY,EMAIL,MOBILENUMBER,RATTINGS,PASSWORD,DATE,STATUS)
+    VALUES(?,?,?,?,?,?,?,?);
+`
+export const checkDoctors = `
+    SELECT * 
+    FROM doctors 
+    WHERE EMAIL = ? 
+    AND MOBILENUMBER = ?
+`;

@@ -10,6 +10,7 @@ import { AuthRouter } from './middleware/login.middleware.js';
 import { RegRouter } from './middleware/signup.middleware.js';
 import { populerDoctors } from './middleware/populerDoctors.middleware.js';
 import { allDoctors } from './middleware/allDoctors.middleware.js';
+import { addDoctor } from './middleware/addDoctors.middleware.js';
 
 dotenv.config();
 const app = express();
@@ -22,6 +23,7 @@ app.use(AuthRouter);
 app.use(RegRouter);
 app.use(populerDoctors);
 app.use(allDoctors);
+app.use(addDoctor);
 
 
 app.use(ErrorHandler);
@@ -30,10 +32,10 @@ const port = process.env.PORT_NUMBER
 db.query(`
 SELECT 1
 `)
-.then(data => { 
-    app.listen(port, () => {
-        console.log(`server listening at http://localhost:${port}`);
+    .then(data => {
+        app.listen(port, () => {
+            console.log(`server listening at http://localhost:${port}`);
+        })
     })
-})
-.catch(err => console.log('db connection error\n'+err));
+    .catch(err => console.log('db connection error\n' + err));
 
