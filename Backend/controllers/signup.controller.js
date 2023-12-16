@@ -1,7 +1,7 @@
 import { RegisterUserService } from "../services/signup.services.js";
 import bcrypt from 'bcrypt';
 import {body, validationResult } from 'express-validator';
-
+import { SignUpInsertQuery, SignUpSelectQuery } from "../models/query.models.js";
 const saltRounds = 10;
 export const ControlUserRegistration = async (req,res) => {
     try{
@@ -13,7 +13,7 @@ export const ControlUserRegistration = async (req,res) => {
             }
             else{
                 if(body('FullName').isAlphanumeric().isLength({ min: 3, max: 30 }).trim() && body('Email').isEmail().normalizeEmail() && body('phoneNumber').isNumeric()){
-                    const results = await RegisterUserService(FullName,MobileNumber ,Email,hashedPassword, date);
+                    const results = await RegisterUserService(FullName, MobileNumber, Email, hashedPassword, date, SignUpInsertQuery, SignUpSelectQuery);
                     return res.json(results);
                 }
             }

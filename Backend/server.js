@@ -8,6 +8,8 @@ import { sessionMiddleware } from './services/login.services.js';
 
 import { AuthRouter } from './middleware/login.middleware.js';
 import { RegRouter } from './middleware/signup.middleware.js';
+import { populerDoctors } from './middleware/populerDoctors.middleware.js';
+import { allDoctors } from './middleware/allDoctors.middleware.js';
 
 dotenv.config();
 const app = express();
@@ -18,6 +20,8 @@ app.use(cors());
 
 app.use(AuthRouter);
 app.use(RegRouter);
+app.use(populerDoctors);
+app.use(allDoctors);
 
 
 app.use(ErrorHandler);

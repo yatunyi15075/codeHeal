@@ -9,9 +9,9 @@ export const sessionMiddleware = session({
   resave: false,
   saveUninitialized: true,
 });
-export const VaridateUserCredentials = async (req, FullName, Password) => {
+export const VaridateUserCredentials = async (req, FullName, Password, query) => {
     try{
-        const results = await getUserCredentials(FullName, Password);
+        const results = await getUserCredentials(FullName, Password, query);
         if(results && results.length > 0){
             req.session.user = {
                 FullName: FullName,
