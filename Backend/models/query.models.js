@@ -26,16 +26,54 @@ export const SignUpSelectQuery = `
 
 export const allDoctorsQuery = `
     SELECT * 
-    FROM doctors;
+    FROM doctors
   `;
 
 export const addDoctors = `
     INSERT INTO doctors(FULLNAME,CATEGORY,EMAIL,MOBILENUMBER,RATTINGS,PASSWORD,DATE,STATUS)
     VALUES(?,?,?,?,?,?,?,?);
-`
+`;
 export const checkDoctors = `
     SELECT * 
     FROM doctors 
     WHERE EMAIL = ? 
     AND MOBILENUMBER = ?
+`;
+
+export const CheckAppointment = `
+    SELECT *
+    FROM Appointment
+    WHERE PATIENTNAME = ? AND
+    VISITDATE = ? AND
+    TIME = ? AND
+    DOCTOR = ?
+`;
+
+export const CheckAppointmentDoctor = `
+    SELECT * 
+    FROM Appointment
+    WHERE DOCTOR = ? AND 
+    VISITDATE = ? AND
+    TIME = ?
+`;
+
+export const addAppointment = `
+    INSERT INTO Appointment(PATIENTNAME,DOCTOR,VISITDATE,TIME,STATUS)
+    VALUES(?, ?, ?, ?, ?)
+`;
+
+export const VerifyAppointment = `
+  UPDATE Appointment
+  SET STATUS = 'Verified'
+  WHERE DOCTOR = ? AND
+  PATIENTNAME = ? AND
+  VISITDATE = ?;
+`;
+
+export const FinishAppointment = `
+  UPDATE Appointment
+  SET STATUS = 'Finished' 
+  WHERE DOCTOR = ? AND
+  PATIENTNAME = ? AND
+  VISITDATE = ?;
 `;
