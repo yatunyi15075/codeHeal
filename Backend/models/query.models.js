@@ -1,4 +1,4 @@
-/* CODEHEAL DATABASE */
+/* CODEHEAL DATABASE QUERIES*/
 export const Loginquery = `
     SELECT * 
     FROM users 
