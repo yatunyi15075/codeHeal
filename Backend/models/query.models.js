@@ -67,7 +67,7 @@ export const VerifyAppointment = `
   SET STATUS = 'Verified'
   WHERE DOCTOR = ? AND
   PATIENTNAME = ? AND
-  VISITDATE = ?;
+  VISITDATE = ?
 `;
 
 export const FinishAppointment = `
@@ -75,5 +75,12 @@ export const FinishAppointment = `
   SET STATUS = 'Finished' 
   WHERE DOCTOR = ? AND
   PATIENTNAME = ? AND
-  VISITDATE = ?;
+  VISITDATE = ?
+`;
+
+export const CancelAppointment = `
+  DELETE FROM Appointment WHERE  
+  DOCTOR = ? AND
+  PATIENTNAME = ? AND
+  VISITDATE = ?
 `;

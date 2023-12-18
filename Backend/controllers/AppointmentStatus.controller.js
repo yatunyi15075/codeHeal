@@ -1,5 +1,5 @@
 import { AppointmentStatusModelService } from "../services/AppointmentStatus.services.js";
-import { VerifyAppointment, FinishAppointment } from "../models/query.models.js";
+import { VerifyAppointment, FinishAppointment, CancelAppointment } from "../models/query.models.js";
 
 export const AppointmentStatusController = async (req, res) => {
     try {
@@ -11,6 +11,9 @@ export const AppointmentStatusController = async (req, res) => {
         }
         if (req.baseUrl.includes("/finishAppointment")) {
             queryToExecute = FinishAppointment;
+        }
+        if (req.baseUrl.includes("/CancelAppointment")) {
+            queryToExecute = CancelAppointment;
         }
 
         const results = await AppointmentStatusModelService(Doctor, PatientName, VisitDate, queryToExecute);

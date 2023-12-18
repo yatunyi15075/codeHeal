@@ -3,6 +3,7 @@ import express from 'express';
 
 export const routerv = express.Router();
 export const routerf = express.Router();
+export const routerc = express.Router();
 
 //http://localhost:${port}/verifyAppointment/
 routerv.post('/', AppointmentStatusController, (req, res) => {
@@ -18,6 +19,16 @@ routerv.post('/', AppointmentStatusController, (req, res) => {
 routerf.post('/', AppointmentStatusController, (req, res) => {
     try {
         res.json({ message: 'Appointment Finished' });
+    }
+    catch (err) {
+        throw err;
+    }
+});
+
+//http://localhost:${port}/CancelAppointment/
+routerc.post('/', AppointmentStatusController, (req, res) => {
+    try {
+        res.json({ message: 'Appointment Cancelled' });
     }
     catch (err) {
         throw err;

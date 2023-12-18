@@ -12,7 +12,8 @@ import { populerDoctors } from './middleware/populerDoctors.middleware.js';
 import { allDoctors } from './middleware/allDoctors.middleware.js';
 import { addDoctor } from './middleware/addDoctors.middleware.js';
 import { Appointment } from './middleware/addAppointment.middleware.js';
-import { VerifyAppointment, FinishAppointment } from './middleware/AppointmentStatus.middleware.js';
+import { VerifyAppointment, FinishAppointment, CancelAppointment } from './middleware/AppointmentStatus.middleware.js';
+import { openAIApi } from './middleware/deseases.middleware.js';
 
 dotenv.config();
 const app = express();
@@ -29,6 +30,8 @@ app.use(addDoctor);
 app.use(Appointment);
 app.use(VerifyAppointment);
 app.use(FinishAppointment);
+app.use(CancelAppointment);
+app.use(openAIApi);
 
 
 app.use(ErrorHandler);
