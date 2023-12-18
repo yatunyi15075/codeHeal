@@ -84,3 +84,15 @@ export const CancelAppointment = `
   PATIENTNAME = ? AND
   VISITDATE = ?
 `;
+
+export const checkAmbulance = `
+  SELECT * FROM Ambulance WHERE
+  PATIENTNAME = ? AND
+  LOCATION = ? AND
+  STATUS = 'PEDDING'
+`;
+
+export const RequestAmbulance = `
+  INSERT INTO Ambulance(PATIENTNAME,LOCATION,STATUS) 
+  VALUES(?,?,?)
+`;
