@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'doctors_list.dart';
 import 'Ambulance.dart';
 import 'doctors_details.dart';
-import 'profile.dart';
+import 'settings.dart';
 import 'disease_checker.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,8 +15,11 @@ class HomePage extends StatelessWidget {
         title: Row(
           children: [
             SizedBox(width: 8.0),
-            Text("Hello Team"),
-            SizedBox(width: 115.0),
+            Text(
+              "Our Services",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            SizedBox(width: 110.0),
             Icon(Icons.person),
           ],
         ),
